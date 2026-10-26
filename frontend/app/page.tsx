@@ -1,5 +1,5 @@
 import {Suspense} from "react";
-import FetchAPI from "../components/FetchAPI";
+import FetchAPI from "../components/APIStatus";
 
 
 export default function Home() {
