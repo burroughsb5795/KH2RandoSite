@@ -1,6 +1,6 @@
 export default async function APIStatus() {
   try{
-    const res = await fetch("http://localhost:8000/health");
+    const res = await fetch(`${process.env.API_URL}/health`);
     if (!res.ok) {
       throw new Error("Network response was not ok");
     }

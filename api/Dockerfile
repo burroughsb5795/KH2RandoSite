@@ -9,3 +9,5 @@ EXPOSE 8000
 
 RUN useradd app
 USER app
+
+CMD ["fastapi", "run", "--port", "8000"]
