@@ -1,5 +1,5 @@
 import {Suspense} from "react";
-import FetchAPI from "../components/APIStatus";
+import APIStatus from "../components/APIStatus";
 
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
           </p>
           <p className="max-w-xs text-lg text-black/80 dark:text-zinc-50/80">
             <Suspense fallback="Checking API...">
-              The API is currently: {<FetchAPI />}
+              The API is currently: <APIStatus />
             </Suspense>
           </p>
         </div>
