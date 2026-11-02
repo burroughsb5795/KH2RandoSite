@@ -20,8 +20,6 @@ services:
       POSTGRES_USER: ${db_user}
       POSTGRES_PASSWORD: ${db_password}
       POSTGRES_DB: kh2randosite_db
-    ports:
-      - "5432:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
 volumes:
