@@ -14,11 +14,13 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
+    environment:
+      - DB_URL=postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/kh2randosite_db
   db:
     image: postgres:17  
     environment:
-      POSTGRES_USER: ${db_user}
-      POSTGRES_PASSWORD: ${db_password}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: kh2randosite_db
     volumes:
       - db_data:/var/lib/postgresql/data
