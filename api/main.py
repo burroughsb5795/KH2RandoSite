@@ -1,10 +1,12 @@
-import os
-
+from database import engine
 from fastapi import FastAPI 
 from fastapi.responses import JSONResponse
-from sqlalchemy import text, create_engine
-DB_URL = os.environ["DB_URL"]
-engine = create_engine(DB_URL, echo=True)
+from sqlalchemy import text, String, ForeignKey
+from typing import List, Optional
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
+from models import Base, Seed
+
+Base.metadata.create_all(engine)
 app = FastAPI()
 
 @app.get("/health")
@@ -14,5 +16,5 @@ def health():
             conn.execute(text("SELECT 1"))
         return JSONResponse(status_code=200, content={"status": "Database connection successful"})
     except Exception as e:
-        return JSONResponse(status_code=503, content={"status": f"Database connection failed."})
         print(f"Database connection failed: {e}")
+        return JSONResponse(status_code=503, content={"status": f"Database connection failed."})
