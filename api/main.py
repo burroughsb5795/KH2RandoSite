@@ -1,9 +1,6 @@
 from database import engine
 from fastapi import FastAPI 
 from fastapi.responses import JSONResponse
-from sqlalchemy import text, String, ForeignKey
-from typing import List, Optional
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 from models import Base, Seed
 
 Base.metadata.create_all(engine)
